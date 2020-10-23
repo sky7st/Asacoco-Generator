@@ -1,0 +1,51 @@
+@font-face {
+  font-family: 'cwTeXKai';
+  font-style: normal;
+  font-weight: 500;
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot);
+  src: url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.eot?#iefix) format('embedded-opentype'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff2) format('woff2'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
+       url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
+}
+canvas {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#bg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-attachment: fixed;
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(.3);
+  z-index: -1;
+  top: 0;
+}
+
+#content {
+  max-height: 80vh;
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+#footer a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
