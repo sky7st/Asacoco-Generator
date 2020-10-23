@@ -42,6 +42,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
   height: 100vh;
+  cursor: url(../images/cursor.png) 0 0, auto !important;
 }
 
 #footer a{
