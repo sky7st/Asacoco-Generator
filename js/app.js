@@ -37,9 +37,9 @@ const app = Vue.createApp({
       // Background
       ctx.value.drawImage(cardBg.value, 0, 0)
       // Draw Texts
-      colorText(input.value.id, canvas.value.width/2 + 400, 500, 'black', '60px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
-      colorText(input.value.dep, canvas.value.width/2 + 400, 650, 'black', '120px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
-      colorText(input.value.name, canvas.value.width/2 + 400, 950, 'black', '170px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
+      colorText(input.value.id, canvas.value.width/2 + 400, 500, 'black', '60px dfkai-sb, KaiTi, stkaiti, 標楷體, 华文楷体, cwTeXKai, Arial, cursive, hkkaikk', 'center')
+      colorText(input.value.dep, canvas.value.width/2 + 400, 650, 'black', '120px dfkai-sb, KaiTi, stkaiti, 標楷體, 华文楷体, cwTeXKai, Arial, cursive, hkkaikk', 'center')
+      colorText(input.value.name, canvas.value.width/2 + 400, 950, 'black', '170px dfkai-sb, KaiTi, stkaiti, 標楷體, 华文楷体, cwTeXKai, Arial, cursive, hkkaikk', 'center')
       // Draw avatar
       if(input.value.avatar) {
         const ratio = 600 / input.value.avatar.width
