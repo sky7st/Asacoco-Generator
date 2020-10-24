@@ -73,6 +73,7 @@ const app = Vue.createApp({
 
     onMounted(async () => {
       await document.fonts.load('10pt cwTeXKai')
+      await document.fonts.load('10pt hkkaikk')
       cardBg.value = await loadImage('./images/ACU.png')
       input.value.avatar = await loadImage('./images/default_avatar.png')
       ctx.value = canvas.value.getContext('2d')

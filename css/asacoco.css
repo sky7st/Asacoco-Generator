@@ -8,6 +8,12 @@
        url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.woff) format('woff'),
        url(//fonts.gstatic.com/ea/cwtexkai/v3/cwTeXKai-zhonly.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'hkkaikk';
+  src: url(../fonts/hkkaikk.ttf);
+}
+
 canvas {
   width: 80%;
   max-width: 500px;
