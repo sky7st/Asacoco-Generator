@@ -37,9 +37,9 @@ const app = Vue.createApp({
       // Background
       ctx.value.drawImage(cardBg.value, 0, 0)
       // Draw Texts
-      colorText(input.value.id, 1200, 500, 'black', '60px cwTeXKai, Arial', 'start')
-      colorText(input.value.dep, 1200, 650, 'black', '120px cwTeXKai, Arial', 'center')
-      colorText(input.value.name, 1100, 950, 'black', '180px cwTeXKai, Arial', 'center')
+      colorText(input.value.id, canvas.value.width/2 + 400, 500, 'black', '60px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
+      colorText(input.value.dep, canvas.value.width/2 + 400, 650, 'black', '120px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
+      colorText(input.value.name, canvas.value.width/2 + 400, 950, 'black', '170px dfkai-sb, stkaiti, 標楷體, 华文楷体, cwTeXKai, hkkaikk, Arial, cursive', 'center')
       // Draw avatar
       if(input.value.avatar) {
         const ratio = 600 / input.value.avatar.width
@@ -48,8 +48,8 @@ const app = Vue.createApp({
     }
 
     const colorText = (text, x, y, color, font, align) => {
-      ctx.textAlign = align
       ctx.value.font = font
+      ctx.value.textAlign = align
       ctx.value.fillStyle = color
       ctx.value.fillText(text, x, y)
     }
