@@ -43,7 +43,11 @@ const app = Vue.createApp({
       // Draw avatar
       if(input.value.avatar) {
         const ratio = 600 / input.value.avatar.width
+        ctx.value.save()
+        roundedImage(120, 430, 600, input.value.avatar.height * ratio, 30)
+        ctx.value.clip()
         ctx.value.drawImage(input.value.avatar, 120, 430, 600, input.value.avatar.height * ratio)
+        ctx.value.restore()
       }
     }
 
@@ -69,6 +73,20 @@ const app = Vue.createApp({
         }
         image.src = url
       })
+    }
+
+    const roundedImage = (x, y, width, height, radius) => {
+      ctx.value.beginPath()
+      ctx.value.moveTo(x + radius, y)
+      ctx.value.lineTo(x + width - radius, y)
+      ctx.value.quadraticCurveTo(x + width, y, x + width, y + radius)
+      ctx.value.lineTo(x + width, y + height - radius)
+      ctx.value.quadraticCurveTo(x + width, y + height, x + width - radius, y + height)
+      ctx.value.lineTo(x + radius, y + height)
+      ctx.value.quadraticCurveTo(x, y + height, x, y + height - radius)
+      ctx.value.lineTo(x, y + radius)
+      ctx.value.quadraticCurveTo(x, y, x + radius, y)
+      ctx.value.closePath()
     }
 
     onMounted(async () => {
