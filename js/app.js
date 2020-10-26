@@ -24,6 +24,7 @@ const app = Vue.createApp({
     const selectMode = (value, e) => {
       e.preventDefault()
       mode.value = value
+      location.hash = '#mode' + value
     }
 
     const handleFile = (e) => {
@@ -132,6 +133,9 @@ const app = Vue.createApp({
       templates[0] = await loadImage('./images/templates/ACU.png')
       templates[1] = await loadImage('./images/templates/science.png')
       input.value.avatar = await loadImage('./images/default_avatar.png')
+      const id = parseInt(location.hash.slice(1).replace('mode', ''))
+      if(!isNaN(id) && id < 2) mode.value = id
+      else location.hash = '#mode0'
       canvas = document.querySelectorAll('.canvas')[mode.value]
       ctx = canvas.getContext('2d')
       refresh()
