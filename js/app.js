@@ -5,7 +5,7 @@ const app = Vue.createApp({
     // mode
     // 0 = student
     // 1 = science club
-    const mode = ref(1)
+    const mode = ref(0)
     const input = ref({
       id: 'A2020000001',
       name: '桐生ココ',
