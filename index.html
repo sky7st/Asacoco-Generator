@@ -16,6 +16,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" >
   <link rel="stylesheet" href="./css/asacoco.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/solid.min.js"></script>
+
   <!-- Manifest -->
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
@@ -24,7 +27,8 @@
   <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-    <!-- Primary Meta Tags -->
+  
+  <!-- Primary Meta Tags -->
   <meta name="title" content="Asacoco Generator">
   <meta name="description" content="Generate your student card of Asacoco University!">
 
@@ -51,34 +55,98 @@
           <img src="./images/logo.png" width="100" class="mx-3">
           <h1>ASACOCO GENERATOR</h1>
         </div>
-        <div class="col-10 my-3">
+        <div class="col-10 row text-center" id="tab">
+          <ul class="nav justify-content-center">
+            <li :class="{'nav-item': true, active: mode == 0}">
+              <a class="nav-link" href="#" @click="selectMode(0, $event)">
+                <h3>
+                  <i class="fas fa-school"></i>
+                </h3>
+                Student Card
+              </a>
+            </li>
+            <li :class="{'nav-item': true, active: mode == 1}">
+              <a class="nav-link" href="#" @click="selectMode(1, $event)">
+                <h3>
+                  <i class="fas fa-flask"></i>
+                </h3>
+                Science Club
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-10 my-3" v-show="mode === 0">
           <div class="card">
             <div class="card-body">
               <div class="mb-3">
-                <label for="input-id" class="form-label">Student ID</label>
-                <input placeholder="Enter your student ID..." class="form-control" id="input-id" type="text" v-model="input.id" @input="refresh">
+                <label for="input-id0" class="form-label">Student ID</label>
+                <input placeholder="Enter your student ID..." class="form-control" id="input-id0" type="text" v-model="input.id" @input="refresh">
               </div>
               <div class="mb-3">
-                <label for="input-dep" class="form-label">Department</label>
-                <input placeholder="Enter your department name..." class="form-control" id="input-dep" type="text" v-model="input.dep" @input="refresh">
+                <label for="input-dep0" class="form-label">Department</label>
+                <input placeholder="Enter your department name..." class="form-control" id="input-dep0" type="text" v-model="input.dep" @input="refresh">
               </div>
               <div class="mb-3">
-                <label for="input-name" class="form-label">Name</label>
-                <input placeholder="Enter your student name..." class="form-control" id="input-name" type="text" v-model="input.name" @input="refresh">
+                <label for="input-name0" class="form-label">Name</label>
+                <input placeholder="Enter your student name..." class="form-control" id="input-name0" type="text" v-model="input.name" @input="refresh">
               </div>
               <div class="mb-3">
-                <label for="input-file" class="form-label">Avatar (Square image is recommended)</label>
+                <label for="input-file0" class="form-label">Avatar (Square image is recommended)</label>
                 <div class="form-file">
-                  <input id="input-file" class="form-file-input" type="file" @input="handleFile" accept="image/*">
-                  <label class="form-file-label" for="input-file">
+                  <input id="input-file0" class="form-file-input" type="file" @input="handleFile" accept="image/*">
+                  <label class="form-file-label" for="input-file0">
                     <span class="form-file-text">Choose file...</span>
                     <span class="form-file-button">Browse</span>
                   </label>
                 </div>
               </div>
-              <canvas ref="canvas" width="2022" height="1275" id="canvas" class="d-block my-3"></canvas>
+              <canvas width="2022" height="1275" class="d-block my-3 canvas"></canvas>
               <p class="text-center">
                 <button type="button" class="btn btn-success btn-lg btn-large" @click="download">Download</button>
+              </p>
+              <p class="text-center">
+                Designed by 
+                <a target="_blank" href="https://twitter.com/JustinYoYa/status/1319591394076491776">
+                  YoYa
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-10 my-3" v-show="mode === 1">
+          <div class="card">
+            <div class="card-body">
+              <div class="mb-3">
+                <label for="input-id1" class="form-label">Student ID</label>
+                <input placeholder="Enter your student ID..." class="form-control" id="input-id1" type="text" v-model="input.id" @input="refresh">
+              </div>
+              <div class="mb-3">
+                <label for="input-name1" class="form-label">Name</label>
+                <input placeholder="Enter your student name..." class="form-control" id="input-name1" type="text" v-model="input.name" @input="refresh">
+              </div>
+              <div class="mb-3">
+                <label for="input-lab1" class="form-label">Lab Number</label>
+                <input placeholder="Enter your department name..." class="form-control" id="input-lab1" type="text" v-model="input.lab" @input="refresh">
+              </div>
+              <div class="mb-3">
+                <label for="input-file1" class="form-label">Avatar (Square image is recommended)</label>
+                <div class="form-file">
+                  <input id="input-file1" class="form-file-input" type="file" @input="handleFile" accept="image/*">
+                  <label class="form-file-label" for="input-file1">
+                    <span class="form-file-text">Choose file...</span>
+                    <span class="form-file-button">Browse</span>
+                  </label>
+                </div>
+              </div>
+              <canvas width="1004" height="591" class="d-block my-3 canvas"></canvas>
+              <p class="text-center">
+                <button type="button" class="btn btn-success btn-lg btn-large" @click="download">Download</button>
+              </p>
+              <p class="text-center">
+                Designed by 
+                <a target="_blank" href="https://twitter.com/kokohi5586">
+                  KoKohi ココヒ
+                </a>
               </p>
             </div>
           </div>
@@ -95,9 +163,6 @@
             <a target="_blank" href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
               Unsplash
             </a>
-            <br>
-            Student card designed by 
-            <a target="_blank" href="https://twitter.com/JustinYoYa/status/1319591394076491776">YoYa</a>
             <br>
             Made with ❤ by 
             <a target="_blank" href="https://github.com/rogeraabbccdd">Kento</a>

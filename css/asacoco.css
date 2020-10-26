@@ -14,10 +14,23 @@
   src: url(../fonts/hkkaikk.ttf);
 }
 
+@font-face {
+  font-family: 'Archicoco';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Archicoco Regular'), url(../fonts/Archicoco.woff) format('woff');
+}
+
 canvas {
   width: 80%;
   max-width: 500px;
   margin: 0 auto;
+}
+
+@font-face {
+  font-family: 'SweiSans';
+  src: url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.101/WebFont/CJK%20TC/SweiSansCJKtc-Regular.woff2) format("woff2"),
+       url(https://cdn.jsdelivr.net/gh/max32002/swei-sans@2.101/WebFont/CJK%20TC/SweiSansCJKtc-Regular.woff) format("woff");
 }
 
 #bg {
@@ -32,10 +45,6 @@ canvas {
   filter: brightness(.3);
   z-index: -1;
   top: 0;
-}
-
-#content {
-  max-height: 80vh;
 }
 
 #app {
@@ -55,4 +64,31 @@ body {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+#tab li {
+  border-radius: 5px;
+}
+
+#tab a {
+  color: white;
+  text-decoration: none;
+}
+
+#tab li.active {
+  background: white;
+  color: black;
+}
+
+#tab li.active a,
+#tab li.active svg {
+  color: black !important;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s ease;
+}
+
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
